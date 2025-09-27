@@ -882,6 +882,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="260",ID="120",TYPE="End",STEP="Attuned",LOCATION=Lang["Shadowmoon Valley"],ID_WOWHEAD="0",ICON="Interface\\AddOns\\Attune\\Images\\achievement_character_bloodelf_male",FOLLOWS="110",STAGE="120"},
 
 
+
 	--WOTLK
 	--Wrathgate Horde
 	{ID_ATTUNE="300",ID="10",TYPE="Level",STEP=Lang["Reach level"].." 71",LOCATION="",ID_WOWHEAD="71",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
@@ -928,7 +929,6 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="300",ID="280",TYPE="Quest",STEP="",LOCATION=Lang["Orgrimmar"],ID_WOWHEAD="13266",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="270",STAGE="280"},
 	{ID_ATTUNE="300",ID="290",TYPE="Quest",STEP="",LOCATION=Lang["Undercity"],ID_WOWHEAD="13267",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="280",STAGE="290"},
 	{ID_ATTUNE="300",ID="300",TYPE="End",STEP="Attuned",LOCATION=Lang["Undercity"],ID_WOWHEAD="0",ICON="Interface\\Icons\\achievement_zone_icecrown_06",FOLLOWS="290",STAGE="300"},
-	
 
 
 	--Wrathgate Alliance
@@ -988,8 +988,9 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="310",ID="390",TYPE="Quest",STEP="",LOCATION=Lang["Stormwind City"],ID_WOWHEAD="13371",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="380",STAGE="320"},
 	{ID_ATTUNE="310",ID="400",TYPE="Quest",STEP="",LOCATION=Lang["Undercity"],ID_WOWHEAD="13377",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="390",STAGE="330"},
 	{ID_ATTUNE="310",ID="410",TYPE="End",STEP="Attuned",LOCATION=Lang["Undercity"],ID_WOWHEAD="0",ICON="Interface\\Icons\\achievement_zone_icecrown_06",FOLLOWS="400",STAGE="340"},
-	
 
+
+	-- WOTLK Sons of Hodir
 	{ID_ATTUNE="330",ID="10",TYPE="Level",STEP=Lang["Reach level"].." 77",LOCATION="",ID_WOWHEAD="77",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="330",ID="20",TYPE="Interact",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="29473",ICON="Interface\\AddOns\\Attune\\Images\\achievement_femalegoblinhead",FOLLOWS="10",STAGE="20"},
 	{ID_ATTUNE="330",ID="30",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12843",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"},
@@ -1086,6 +1087,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="350",ID="150",TYPE="End",STEP="Attuned",LOCATION=Lang["Icecrown"],ID_WOWHEAD="0",ICON="Interface\\Icons\\achievement_reputation_knightsoftheebonblade",FOLLOWS="140",STAGE="150"},
 
 
+	-- Eye of Eternity (10)
 	{ID_ATTUNE="360",ID="10",TYPE="Level",STEP=Lang["Reach level"].." 80",LOCATION="",ID_WOWHEAD="80",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="360",ID="20",TYPE="Kill",STEP="",LOCATION=Lang["Naxxramas"],ID_WOWHEAD="15989",ICON="Interface\\Icons\\achievement_boss_sapphiron_01",FOLLOWS="10",STAGE="20"},
 	{ID_ATTUNE="360",ID="30",TYPE="Item",STEP="",LOCATION=Lang["Naxxramas"],ID_WOWHEAD="44569",ICON="Interface\\Icons\\spell_holy_mindsooth",FOLLOWS="20",STAGE="30"},
@@ -1095,6 +1097,8 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="360",ID="55",TYPE="Attune",STEP=Lang["The Eye of Eternity"].." (25)",LOCATION="",ID_WOWHEAD="370",ICON="Interface\\Icons\\achievement_boss_malygos_01",FOLLOWS="0",STAGE="50"},
 	{ID_ATTUNE="360",ID="60",TYPE="End",STEP="Attuned",LOCATION=Lang["Dragonblight"],ID_WOWHEAD="0",ICON="Interface\\Icons\\achievement_boss_malygos_01",FOLLOWS="50|55",STAGE="60"},
 
+
+	-- Eye of Eternity (25)
 	{ID_ATTUNE="370",ID="10",TYPE="Level",STEP=Lang["Reach level"].." 80",LOCATION="",ID_WOWHEAD="80",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="370",ID="20",TYPE="Kill",STEP="",LOCATION=Lang["Naxxramas"],ID_WOWHEAD="15989",ICON="Interface\\Icons\\achievement_boss_sapphiron_01",FOLLOWS="10",STAGE="20"},
 	{ID_ATTUNE="370",ID="30",TYPE="Item",STEP="",LOCATION=Lang["Naxxramas"],ID_WOWHEAD="44577",ICON="Interface\\Icons\\spell_holy_mindsooth",FOLLOWS="20",STAGE="30"},

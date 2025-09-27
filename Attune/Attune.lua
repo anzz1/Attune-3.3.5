@@ -2460,6 +2460,17 @@ function Attune_CheckComplete(newComplete, checkAllAttunes)
 	if att.done["250-110"] and att.attuned["250"] ~= 100 	then att.done["250-120"] = 1; 	Attune_SendPushInfo("250-120"); 	att.attuned["250"] = 100; attunesToCheck["250"]=true; Attune_UpdateTreeGroup("250"); newComplete = true;  end	-- Ogrila
 	if att.done["260-110"] and att.attuned["260"] ~= 100 	then att.done["260-120"] = 1; 	Attune_SendPushInfo("260-120"); 	att.attuned["260"] = 100; attunesToCheck["260"]=true; Attune_UpdateTreeGroup("260"); newComplete = true;  end	-- Netherwing
 
+	-- WOTLK
+	if att.done["300-290"] and att.attuned["300"] ~= 100	then att.done["300-300"] = 1;	Attune_SendPushInfo("300-300");		att.attuned["300"] = 100; attunesToCheck["300"]=true; Attune_UpdateTreeGroup("300"); newComplete = true;  end	-- Wrathgate Horde
+	if att.done["310-400"] and att.attuned["310"] ~= 100	then att.done["310-410"] = 1;	Attune_SendPushInfo("310-410");		att.attuned["310"] = 100; attunesToCheck["310"]=true; Attune_UpdateTreeGroup("310"); newComplete = true;  end	-- Wrathgate Alliance
+
+	if att.done["330-380"] and att.attuned["330"] ~= 100	then att.done["330-390"] = 1;	Attune_SendPushInfo("330-390");		att.attuned["330"] = 100; attunesToCheck["330"]=true; Attune_UpdateTreeGroup("330"); newComplete = true;  end	-- Sons of Hodir
+	if att.done["340-140"] and att.attuned["340"] ~= 100	then att.done["340-150"] = 1;	Attune_SendPushInfo("340-150");		att.attuned["340"] = 100; attunesToCheck["340"]=true; Attune_UpdateTreeGroup("340"); newComplete = true;  end	-- Ebon Blade Horde
+	if att.done["350-140"] and att.attuned["350"] ~= 100	then att.done["350-150"] = 1;	Attune_SendPushInfo("350-150");		att.attuned["350"] = 100; attunesToCheck["350"]=true; Attune_UpdateTreeGroup("350"); newComplete = true;  end	-- Ebon Blade Alliance
+
+	if att.done["360-55"] and att.attuned["360"] ~= 100		then att.done["360-60"] = 1;	Attune_SendPushInfo("360-60");		att.attuned["360"] = 100; attunesToCheck["360"]=true; Attune_UpdateTreeGroup("360"); newComplete = true;  end	-- Eye of Eternity (10)
+	if att.done["370-50"] and att.attuned["370"] ~= 100		then att.done["370-60"] = 1;	Attune_SendPushInfo("370-60");		att.attuned["370"] = 100; attunesToCheck["370"]=true; Attune_UpdateTreeGroup("370"); newComplete = true;  end	-- Eye of Eternity (25)
+
 	if newComplete then 
 		--print("New Attune Found. List of Attunes to Deep check: ")
 		--for k,v in pairs(attunesToCheck) do
