@@ -940,6 +940,8 @@ Lang["Q2_7486"] = "히드락시스의 궤짝에 든 보상을 차지하십시오
 --v254
 Lang["Q1_11481"] = "태양샘의 위기"
 Lang["Q2_11481"] = "샤트라스의 알도르 마루에 있는 빛의 수호자 아드옌이 태양샘 고원으로 가서 라레소르와 이야기해 달라고 부탁했습니다."
+Lang["Q1_11482"] = "Duty Calls"
+Lang["Q2_11482"] = "Dathris Sunstriker on Scryer's Tier in Shattrath City has insisted that you travel to Azeroth at once and report to Larethor at the Sunwell."
 Lang["Q1_11488"] = "마법학자의 정원"
 Lang["Q2_11488"] = "무너진 태양 집결지에 있는 총독 라레소르가 마법학자의 정원에서 블러드 엘프 첩보원인 티리스를 찾아봐 달라고 부탁했습니다."
 Lang["Q1_11490"] = "점술가의 수정구"

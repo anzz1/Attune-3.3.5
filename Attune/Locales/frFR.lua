@@ -939,6 +939,8 @@ Lang["Q2_7486"] = "Allez chercher votre récompense dans le Coffre d’Hydraxis.
 --v254
 Lang["Q1_11481"] = "Crise au Puits de soleil"
 Lang["Q2_11481"] = "Adyen le Gardelumière, de l'Éminence de l'Aldor à Shattrath, veut que vous vous rendiez au Plateau du Puits de soleil pour parler à Larethor."
+Lang["Q1_11482"] = "Duty Calls"
+Lang["Q2_11482"] = "Dathris Sunstriker on Scryer's Tier in Shattrath City has insisted that you travel to Azeroth at once and report to Larethor at the Sunwell."
 Lang["Q1_11488"] = "La terrasse des Magistères"
 Lang["Q2_11488"] = "L'exarque Larethor, de la Zone de rassemblement du Soleil brisé, vous demande d'explorer la Terrasse des magistères à la recherche de Tyrith, un espion elfe de sang."
 Lang["Q1_11490"] = "Clairvoyance pour les Clairvoyants"

@@ -940,6 +940,8 @@ Lang["Q2_7486"] = "Nehmt Eure Belohnung aus Hydraxis' Kasten."
 --v254
 Lang["Q1_11481"] = "Krise am Sonnenbrunnen"
 Lang["Q2_11481"] = "Adyen der Lichtwächter auf der Aldorhöhe in Shattrath hat Euch gebeten, zum Sonnenbrunnenplateau zu reisen und dort mit Larethor zu sprechen."
+Lang["Q1_11482"] = "Duty Calls"
+Lang["Q2_11482"] = "Dathris Sunstriker on Scryer's Tier in Shattrath City has insisted that you travel to Azeroth at once and report to Larethor at the Sunwell."
 Lang["Q1_11488"] = "Terrasse der Magister"
 Lang["Q2_11488"] = "Exarch Larethor beim Sammelpunkt der Zerschmetterten Sonne möchte, dass Ihr die Terrasse der Magister absucht und einen Blutelfenspion namens Tyrith findet."
 Lang["Q1_11490"] = "Der Seher der Seher"

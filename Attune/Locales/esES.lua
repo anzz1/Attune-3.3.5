@@ -910,6 +910,8 @@ Lang["Q2_7486"] = "Recoge tu recompensa en el arca de Hydraxis."
 --v254
 Lang["Q1_11481"] = "Crisis en La Fuente del Sol"
 Lang["Q2_11481"] = "Adyen el Celador de la Luz del Alto Aldor, en la Ciudad de Shattrath, te ha pedido que viajes hasta la Meseta de La Fuente del Sol para hablar con Larethor."
+Lang["Q1_11482"] = "Duty Calls"
+Lang["Q2_11482"] = "Dathris Sunstriker on Scryer's Tier in Shattrath City has insisted that you travel to Azeroth at once and report to Larethor at the Sunwell."
 Lang["Q1_11488"] = "El Bancal del Magister"
 Lang["Q2_11488"] = "El exarca Larethor de la Zona de escala de Sol Devastado quiere que registres el Bancal del Magister y encuentres a Tyrith, un espía elfo de sangre."
 Lang["Q1_11490"] = "El cristal del Arúspice"

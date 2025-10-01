@@ -939,6 +939,8 @@ Lang["Q2_7486"] = "Claim your reward from Hydraxis' Coffer."
 --v254
 Lang["Q1_11481"] = "Crisis at the Sunwell"
 Lang["Q2_11481"] = "Adyen the Lightwarden on the Aldor Rise in Shattrath City has requested that you travel to Sunwell Plateau and speak with Larethor."
+Lang["Q1_11482"] = "Duty Calls"
+Lang["Q2_11482"] = "Dathris Sunstriker on Scryer's Tier in Shattrath City has insisted that you travel to Azeroth at once and report to Larethor at the Sunwell."
 Lang["Q1_11488"] = "Magisters' Terrace"
 Lang["Q2_11488"] = "Exarch Larethor at the Shattered Sun Staging Area wants you to search Magisters' Terrace and find Tyrith, a blood elf spy."
 Lang["Q1_11490"] = "The Scryer's Scryer"

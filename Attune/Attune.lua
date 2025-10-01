@@ -2443,7 +2443,7 @@ function Attune_CheckComplete(newComplete, checkAllAttunes)
 	if att.done["107-20"] and att.attuned["107"] ~= 100 	then att.done["107-30"] = 1; 	Attune_SendPushInfo("107-30"); 	att.attuned["107"] = 100; attunesToCheck["107"]=true; Attune_UpdateTreeGroup("107"); newComplete = true;  end	-- Lower City
 	if att.done["108-20"] and att.attuned["108"] ~= 100 	then att.done["108-30"] = 1; 	Attune_SendPushInfo("108-30"); 	att.attuned["108"] = 100; attunesToCheck["108"]=true; Attune_UpdateTreeGroup("108"); newComplete = true;  end	-- Shatar
 	if att.done["109-20"] and att.attuned["109"] ~= 100 	then att.done["109-30"] = 1; 	Attune_SendPushInfo("109-30"); 	att.attuned["109"] = 100; attunesToCheck["109"]=true; Attune_UpdateTreeGroup("109"); newComplete = true;  end	-- CoT
-	if att.done["110-60"] and att.attuned["110"] ~= 100 	then att.done["110-70"] = 1; 	Attune_SendPushInfo("110-70"); 	att.attuned["110"] = 100; attunesToCheck["110"]=true; Attune_UpdateTreeGroup("110"); newComplete = true;  end	-- MgT
+	if att.done["110-70"] and att.attuned["110"] ~= 100 	then att.done["110-80"] = 1; 	Attune_SendPushInfo("110-80"); 	att.attuned["110"] = 100; attunesToCheck["110"]=true; Attune_UpdateTreeGroup("110"); newComplete = true;  end	-- MgT
 
 	if att.done["115-185"] and att.attuned["115"] ~= 100 	then att.done["115-190"] = 1; 	Attune_SendPushInfo("115-190"); 	att.attuned["115"] = 100; attunesToCheck["115"]=true; Attune_UpdateTreeGroup("115"); newComplete = true;  end	-- Kara
 	if att.done["116-230"] and att.attuned["116"] ~= 100 	then att.done["116-240"] = 1; att.done["116-235"] = 1;	Attune_SendPushInfo("116-240"); 	att.attuned["116"] = 100; attunesToCheck["116"]=true; Attune_UpdateTreeGroup("116"); newComplete = true;  end	-- Nightbane Horde

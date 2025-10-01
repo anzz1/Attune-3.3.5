@@ -939,6 +939,8 @@ Lang["Q2_7486"] = "从海达克西斯的箱子拿取你的奖励。"
 --v254
 Lang["Q1_11481"] = "太阳之井的危机"
 Lang["Q2_11481"] = "沙塔斯城奥尔多高地的圣光护卫者阿德因要求你前往太阳之井高地，与主教拉雷索尔谈一谈。"
+Lang["Q1_11482"] = "Duty Calls"
+Lang["Q2_11482"] = "Dathris Sunstriker on Scryer's Tier in Shattrath City has insisted that you travel to Azeroth at once and report to Larethor at the Sunwell."
 Lang["Q1_11488"] = "魔导师平台"
 Lang["Q2_11488"] = "破碎残阳基地的主教拉雷索尔要求你前往魔导师平台，寻找血精灵间谍塔雷斯的踪迹。"
 Lang["Q1_11490"] = "占星球"

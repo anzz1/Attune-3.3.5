@@ -482,16 +482,18 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="109",ID="10",TYPE="Rep",STEP=Lang["Honored with"].." "..Lang["Keepers of Time"],LOCATION="989",ID_WOWHEAD="9000",ID_STANDING="6",ICON="Interface\\AddOns\\Attune\\Images\\spell_holy_borrowedtime",FOLLOWS="0",STAGE="10", VALIDFROM=20504 },
 	{ID_ATTUNE="109",ID="20",TYPE="Item",STEP="",LOCATION=Lang["Tanaris"],ID_WOWHEAD="185693",ICON="Interface\\Icons\\inv_misc_key_04",FOLLOWS="10",STAGE="20", VALIDFROM=20504},
 	{ID_ATTUNE="109",ID="30",TYPE="End",STEP="",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\AddOns\\Attune\\Images\\spell_holy_borrowedtime",FOLLOWS="20",STAGE="30"},
-	
+
 	--MgT Heroic
 	{ID_ATTUNE="110",ID="10",TYPE="Level",STEP=Lang["Reach level"].." 70",LOCATION="",ID_WOWHEAD="70",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="1"},
 	{ID_ATTUNE="110",ID="20",TYPE="Quest",STEP="",LOCATION=Lang["Shattrath City"],ID_WOWHEAD="11481",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="2"},
-	{ID_ATTUNE="110",ID="30",TYPE="Pick Up",STEP="",LOCATION=Lang["Isle of Quel'Danas"],ID_WOWHEAD="11488",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="3"},
-	{ID_ATTUNE="110",ID="40",TYPE="Turn In",STEP="",LOCATION=Lang["Magisters' Terrace"],ID_WOWHEAD="11488",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="4"},
-	{ID_ATTUNE="110",ID="50",TYPE="Quest",STEP="",LOCATION=Lang["Magisters' Terrace"],ID_WOWHEAD="11490",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="5"},
-	{ID_ATTUNE="110",ID="60",TYPE="Quest",STEP="",LOCATION=Lang["Magisters' Terrace"],ID_WOWHEAD="11492",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="6"},
-	{ID_ATTUNE="110",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\AddOns\\Attune\\Images\\inv_shield_48",FOLLOWS="60",STAGE="7"},
+	{ID_ATTUNE="110",ID="30",TYPE="Quest",STEP="",LOCATION=Lang["Shattrath City"],ID_WOWHEAD="11482",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="2"},
+	{ID_ATTUNE="110",ID="40",TYPE="Pick Up",STEP="",LOCATION=Lang["Isle of Quel'Danas"],ID_WOWHEAD="11488",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20|30",STAGE="3"},
+	{ID_ATTUNE="110",ID="50",TYPE="Turn In",STEP="",LOCATION=Lang["Magisters' Terrace"],ID_WOWHEAD="11488",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="4"},
+	{ID_ATTUNE="110",ID="60",TYPE="Quest",STEP="",LOCATION=Lang["Magisters' Terrace"],ID_WOWHEAD="11490",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="5"},
+	{ID_ATTUNE="110",ID="70",TYPE="Quest",STEP="",LOCATION=Lang["Magisters' Terrace"],ID_WOWHEAD="11492",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="6"},
+	{ID_ATTUNE="110",ID="80",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\AddOns\\Attune\\Images\\inv_shield_48",FOLLOWS="70",STAGE="7"},
 
+	--Karazhan
 	{ID_ATTUNE="115",ID="10",TYPE="Level",STEP=Lang["Reach level"].." 68",LOCATION="",ID_WOWHEAD="68",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="115",ID="20",TYPE="Interact",STEP="",LOCATION=Lang["Deadwind Pass"],ID_WOWHEAD="17613",ICON="Interface\\Icons\\spell_nature_wispsplode",FOLLOWS="10",STAGE="20"},
 	{ID_ATTUNE="115",ID="30",TYPE="Quest",STEP="",LOCATION=Lang["Deadwind Pass"],ID_WOWHEAD="9824",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"},
@@ -1138,7 +1140,8 @@ Attune_Data.quests = {
 	[3802]={48, 5},			[838]={55,1},			[964]={55,1},			[5514]={55,1},			[5537]={55,1},			[5802]={55,1},			[5804]={55,3},
 	[5511]={55,1},			[5803]={55,3},			[5533]={55,1},			[5538]={55,1},			[5801]={55,1},			[5097]={50,1},			[5098]={50,1},
 	[5505]={50,1},			[5096]={50,1},			[5092]={50,1},			[6804]={55,1},			[6805]={55,1},			[6821]={55,10},			[6822]={55,40},
-	[6823]={55,40},			[6824]={55,40},			[7486]={55,1},			[11481]={70,1},			[11488]={70,5},			[11490]={70,5},			[11492]={70,5},		
+	[6823]={55,40},			[6824]={55,40},			[7486]={55,1},			[11481]={70,1},			[11482]={70,1},			[11488]={70,5},			[11490]={70,5},
+	[11492]={70,5},
 	--WOTLK
 	[12892]={77,1},			[12891]={77,1},			[12893]={77,1},			[12897]={77,1},			[12899]={77,1},			[12887]={77,1},			[12896]={77,1},
 	[12898]={77,1},			[11978]={71,1},			[11983]={71,1},			[12008]={71,1},			[12034]={71,1},			[12036]={71,1},			[12053]={71,1},
