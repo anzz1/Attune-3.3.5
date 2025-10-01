@@ -946,7 +946,7 @@ function Attune:OnEnableEnd()
 	if (Attune_DB.repWidget.point == nil) then Attune_DB.repWidget.point = nil; end
 ]]
 
-	if Attune_DB.showOtherChat then DEFAULT_CHAT_FRAME:AddMessage("|cffff00ff[Attune]|r "..Lang["Splash"]:gsub("##VERSION##", attunelocal_version)) end
+	--if Attune_DB.showOtherChat then DEFAULT_CHAT_FRAME:AddMessage("|cffff00ff[Attune]|r "..Lang["Splash"]:gsub("##VERSION##", attunelocal_version)) end
 
 
 	-- add new fields to toons data
@@ -997,7 +997,7 @@ function Attune:OnEnableEnd()
 	self:RegisterEvent("QUEST_DETAIL")
 	self:RegisterEvent("CHAT_MSG_SYSTEM") -- to detect if we're sending survey response to a player that logged out or something
 	self:RegisterEvent("PLAYER_GUILD_UPDATE") -- used to check for f.x. load so we get guildname setup asap. I guess also for when gkicked/gquit
-	self:RegisterEvent("ZONE_CHANGED_NEW_AREA")-- to complete attunements not registered when entering a zone
+	--self:RegisterEvent("ZONE_CHANGED_NEW_AREA")-- to complete attunements not registered when entering a zone
 
 
 	Attune_UpdateLogs()
@@ -1565,7 +1565,7 @@ function Attune:QUEST_TURNED_IN(event, arg1)
 								if a.FACTION == faction or a.FACTION == 'Both' then
 									--mark step as done
 									Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
-									--refreshNeeded = true¨
+									--refreshNeeded = true
 									if Attune_DB.playSounds then PlaySound("putdownring") end --putdownring
 									-- fetch attune name for chat message
 									if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", Lang["Q1_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
@@ -2021,127 +2021,126 @@ end
 -------------------------------------------------------------------------
 -- EVENT: Zone changed (complete attunements if needed)
 -------------------------------------------------------------------------
-function Attune:ZONE_CHANGED_NEW_AREA(event)
-	local zone = GetRealZoneText()
-	local faction = UnitFactionGroup("player")
-	local numRaidMembers = GetNumRaidMembers()
-	local instanceDifficulty = GetInstanceDifficulty()
-	--print("Zone changed to: "..zone.." - params: "..faction.."-"..numRaidMembers.."-"..instanceDifficulty)
-
-	if zone ~= nil and zone ~= "" then
-		for i,a in pairs(Attune_Data.attunes) do
-			--print("Checking "..a.NAME.." : "..a.ATTLOC.." - "..a.TYPE)
-			if (a.FACTION == faction or a.FACTION == "Both") and a.ATTLOC == zone then
-				if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
-					--print("Already attuned")
-					return -- already attuned, abandon
-				end
-				if numRaidMembers > 0 and a.TYPE == "Raid" then
-					-- give full attune to raid if not already attuned
-					-- find End step, complete it and do recurse check as per usual
-					for n,s in pairs(Attune_Data.steps) do
-						if s.ID_ATTUNE == a.ID and s.TYPE == "End" then
-							
-							--mark step as done
-							Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
-							--refreshNeeded = true
-							--if Attune_DB.playSounds then PlaySound("putdownring") end --putdownring
-							-- fetch attune name for chat message
-							--if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", Lang["I_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
-							Attune_SendPushInfo("TOON")
-							Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
-							
-							if Attune_CheckIfPreviousDone(attunelocal_charKey, s.ID_ATTUNE, s.FOLLOWS) == false then
-								Attune_recursePreviousSteps(attunelocal_charKey, s.ID_ATTUNE, s.FOLLOWS)
-							end
-							
-							Attune_CheckComplete(false)
-							if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
-								if Attune_DB.playSounds then PlaySound("AuctionWindowClose") end-- AuctionWindowClose
-								if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
-								if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..Lang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
-								Attune_CheckComplete(true, true) -- ensure f.x. BT updated
-							end
-							Attune_SendPushInfo("OVER")
-
-							break -- we found it
-						end
-					end
-					return
-
-				elseif instanceDifficulty > 1 and a.TYPE == "Heroic" then
-					-- We're in heroic 
-					-- find End step, complete it and do recurse check as per usual
-					for n,s in pairs(Attune_Data.steps) do
-						if s.ID_ATTUNE == a.ID and s.TYPE == "End" then
-							
-							--mark step as done
-							Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
-							--refreshNeeded = true
-							--if Attune_DB.playSounds then PlaySound("putdownring") end --putdownring
-							-- fetch attune name for chat message
-							--if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", Lang["I_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
-							Attune_SendPushInfo("TOON")
-							Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
-							
-							if Attune_CheckIfPreviousDone(attunelocal_charKey, s.ID_ATTUNE, s.FOLLOWS) == false then
-								Attune_recursePreviousSteps(attunelocal_charKey, s.ID_ATTUNE, s.FOLLOWS)
-							end
-							
-							Attune_CheckComplete(false)
-							if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
-								if Attune_DB.playSounds then PlaySound("AuctionWindowClose") end-- AuctionWindowClose
-								if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
-								if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..Lang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
-								Attune_CheckComplete(true, true) -- ensure f.x. BT updated
-							end
-							Attune_SendPushInfo("OVER")
-
-							break -- we found it
-						end
-					end
-					return
-
-				elseif a.TYPE == "Dungeon" then
-					--print("Found Dungeon tag")
-					-- Only 1 attune has dungeon (BM), get attuned my man
-					-- find End step, complete it and do recurse check as per usual
-					for n,s in pairs(Attune_Data.steps) do
-						if s.ID_ATTUNE == a.ID and s.TYPE == "End" then
-							
-							--mark step as done
-							Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
-							--refreshNeeded = true
-							--if Attune_DB.playSounds then PlaySound("putdownring") end --putdownring
-							-- fetch attune name for chat message
-							--if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", Lang["I_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
-							Attune_SendPushInfo("TOON")
-							Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
-							
-							if Attune_CheckIfPreviousDone(attunelocal_charKey, s.ID_ATTUNE, s.FOLLOWS) == false then
-								Attune_recursePreviousSteps(attunelocal_charKey, s.ID_ATTUNE, s.FOLLOWS)
-							end
-							
-							Attune_CheckComplete(false)
-							if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
-								if Attune_DB.playSounds then PlaySound("AuctionWindowClose") end-- AuctionWindowClose
-								if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
-								if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..Lang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
-								Attune_CheckComplete(true, true) -- ensure f.x. BT updated
-							end
-							Attune_SendPushInfo("OVER")
-
-							break -- we found it
-						end
-					end
-					return
-
-				end
-			end
-		end
-	end
-
-end
+-- function Attune:ZONE_CHANGED_NEW_AREA(event)
+-- 	local zone = GetRealZoneText()
+-- 	local faction = UnitFactionGroup("player")
+-- 	local numRaidMembers = GetNumRaidMembers()
+-- 	local instanceDifficulty = GetInstanceDifficulty()
+-- 	--print("Zone changed to: "..zone.." - params: "..faction.."-"..numRaidMembers.."-"..instanceDifficulty)
+-- 
+-- 	if zone ~= nil and zone ~= "" then
+-- 		for i,a in pairs(Attune_Data.attunes) do
+-- 			--print("Checking "..a.NAME.." : "..a.ATTLOC.." - "..a.TYPE)
+-- 			if (a.FACTION == faction or a.FACTION == "Both") and a.ATTLOC == zone then
+-- 				if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
+-- 					--print("Already attuned")
+-- 					return -- already attuned, abandon
+-- 				end
+-- 				if numRaidMembers > 0 and a.TYPE == "Raid" then
+-- 					-- give full attune to raid if not already attuned
+-- 					-- find End step, complete it and do recurse check as per usual
+-- 					for n,s in pairs(Attune_Data.steps) do
+-- 						if s.ID_ATTUNE == a.ID and s.TYPE == "End" then
+-- 							
+-- 							--mark step as done
+-- 							Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
+-- 							--refreshNeeded = true
+-- 							--if Attune_DB.playSounds then PlaySound("putdownring") end --putdownring
+-- 							-- fetch attune name for chat message
+-- 							--if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", Lang["I_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
+-- 							Attune_SendPushInfo("TOON")
+-- 							Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
+-- 							
+-- 							if Attune_CheckIfPreviousDone(attunelocal_charKey, s.ID_ATTUNE, s.FOLLOWS) == false then
+-- 								Attune_recursePreviousSteps(attunelocal_charKey, s.ID_ATTUNE, s.FOLLOWS)
+-- 							end
+-- 							
+-- 							Attune_CheckComplete(false)
+-- 							if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
+-- 								if Attune_DB.playSounds then PlaySound("AuctionWindowClose") end-- AuctionWindowClose
+-- 								if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
+-- 								if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..Lang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
+-- 								Attune_CheckComplete(true, true) -- ensure f.x. BT updated
+-- 							end
+-- 							Attune_SendPushInfo("OVER")
+-- 
+-- 							break -- we found it
+-- 						end
+-- 					end
+-- 					return
+-- 
+-- 				elseif instanceDifficulty > 1 and a.TYPE == "Heroic" then
+-- 					-- We're in heroic 
+-- 					-- find End step, complete it and do recurse check as per usual
+-- 					for n,s in pairs(Attune_Data.steps) do
+-- 						if s.ID_ATTUNE == a.ID and s.TYPE == "End" then
+-- 							
+-- 							--mark step as done
+-- 							Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
+-- 							--refreshNeeded = true
+-- 							--if Attune_DB.playSounds then PlaySound("putdownring") end --putdownring
+-- 							-- fetch attune name for chat message
+-- 							--if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", Lang["I_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
+-- 							Attune_SendPushInfo("TOON")
+-- 							Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
+-- 							
+-- 							if Attune_CheckIfPreviousDone(attunelocal_charKey, s.ID_ATTUNE, s.FOLLOWS) == false then
+-- 								Attune_recursePreviousSteps(attunelocal_charKey, s.ID_ATTUNE, s.FOLLOWS)
+-- 							end
+-- 							
+-- 							Attune_CheckComplete(false)
+-- 							if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
+-- 								if Attune_DB.playSounds then PlaySound("AuctionWindowClose") end-- AuctionWindowClose
+-- 								if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
+-- 								if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..Lang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
+-- 								Attune_CheckComplete(true, true) -- ensure f.x. BT updated
+-- 							end
+-- 							Attune_SendPushInfo("OVER")
+-- 
+-- 							break -- we found it
+-- 						end
+-- 					end
+-- 					return
+-- 
+-- 				elseif a.TYPE == "Dungeon" then
+-- 					--print("Found Dungeon tag")
+-- 					-- Only 1 attune has dungeon (BM), get attuned my man
+-- 					-- find End step, complete it and do recurse check as per usual
+-- 					for n,s in pairs(Attune_Data.steps) do
+-- 						if s.ID_ATTUNE == a.ID and s.TYPE == "End" then
+-- 							
+-- 							--mark step as done
+-- 							Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
+-- 							--refreshNeeded = true
+-- 							--if Attune_DB.playSounds then PlaySound("putdownring") end --putdownring
+-- 							-- fetch attune name for chat message
+-- 							--if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", Lang["I_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
+-- 							Attune_SendPushInfo("TOON")
+-- 							Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
+-- 							
+-- 							if Attune_CheckIfPreviousDone(attunelocal_charKey, s.ID_ATTUNE, s.FOLLOWS) == false then
+-- 								Attune_recursePreviousSteps(attunelocal_charKey, s.ID_ATTUNE, s.FOLLOWS)
+-- 							end
+-- 							
+-- 							Attune_CheckComplete(false)
+-- 							if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
+-- 								if Attune_DB.playSounds then PlaySound("AuctionWindowClose") end-- AuctionWindowClose
+-- 								if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
+-- 								if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..Lang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
+-- 								Attune_CheckComplete(true, true) -- ensure f.x. BT updated
+-- 							end
+-- 							Attune_SendPushInfo("OVER")
+-- 
+-- 							break -- we found it
+-- 						end
+-- 					end
+-- 					return
+-- 
+-- 				end
+-- 			end
+-- 		end
+-- 	end
+-- end
 
 
 function Attune:QUEST_QUERY_COMPLETE(event)
